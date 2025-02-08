@@ -1,0 +1,10 @@
+#quote {
+  font-style: italic;
+}
+
+#quote::before {
+  content: '"';
+}
+#quote::after {
+  content: '"';
+}
