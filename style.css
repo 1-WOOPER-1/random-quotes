@@ -8,3 +8,25 @@
 #quote::after {
   content: '"';
 }
+
+#favourites-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favourite-card {
+  display: block;
+  width: 20rem;
+  margin: 1rem;
+  padding: 1.1rem;
+  text-align: left;
+}
+
+#favourite-btn {
+  display: none;
+}
+
+.author-text {
+  font-style: italic;
+}
