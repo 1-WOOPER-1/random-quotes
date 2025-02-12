@@ -9,6 +9,17 @@
   content: '"';
 }
 
+#generate-btn {
+  margin: 1rem;
+  background-color: #0b5ed7;
+  color: white;
+  border-color: #0a58ca;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-width: 0;
+  padding: 0.6rem;
+}
+
 #favourites-container {
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +36,8 @@
 
 #favourite-btn {
   display: none;
+  cursor: pointer;
+  color: #ffd43b;
 }
 
 .author-text {

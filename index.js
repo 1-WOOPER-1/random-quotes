@@ -1,4 +1,9 @@
-import quotes from "./quotes.js";
+import quotes from "./src/quotes.js";
+import {
+  hideFavoutireCard,
+  showFavoutiteCard,
+  toggleFavouriteIcon,
+} from "./src/favoritesHandler.js";
 
 const quoteParagraph = document.getElementById("quote");
 const quoteAuthorParagraph = document.getElementById("quote-author");
@@ -14,9 +19,7 @@ const generateRandomQuote = () => {
   const { quote, author, isFavourite } = quotes[currentQuoteIndex];
   quoteParagraph.innerHTML = quote;
   quoteAuthorParagraph.innerHTML = author;
-  isFavourite
-    ? (toggleFavouriteBtn.innerHTML = "Remove from favourites")
-    : (toggleFavouriteBtn.innerHTML = "Add to favourites");
+  toggleFavouriteIcon(isFavourite, toggleFavouriteBtn);
 
   toggleFavouriteBtn.style.display = "inline-block";
 };
@@ -24,27 +27,16 @@ const generateRandomQuote = () => {
 const toggleFavourite = () => {
   const currentQuote = quotes[currentQuoteIndex];
   currentQuote.isFavourite = !currentQuote.isFavourite;
-  quotes[currentQuoteIndex].isFavourite
-    ? (toggleFavouriteBtn.innerHTML = "Remove from favourites")
-    : (toggleFavouriteBtn.innerHTML = "Add to favourites");
-  console.log(currentQuote);
+  toggleFavouriteIcon(currentQuote.isFavourite, toggleFavouriteBtn);
 
   if (currentQuote.isFavourite) {
-    const favouriteCard = document.createElement("div");
-    favouriteCard.classList.add("favourite-card");
-    favouriteCard.classList.add("card");
-    favouriteCard.innerHTML = `
-          <p class="fs-5">${currentQuote.quote}</p>
-          <p class="author-text fs-6">${currentQuote.author}</p>
-          `;
-    favouritesContainer.appendChild(favouriteCard);
+    showFavoutiteCard(
+      currentQuote.quote,
+      currentQuote.author,
+      favouritesContainer
+    );
   } else {
-    const favouritesCards = document.querySelectorAll(".favourite-card");
-    favouritesCards.forEach((card) => {
-      if (card.innerHTML.includes(currentQuote.quote)) {
-        card.remove();
-      }
-    });
+    hideFavoutireCard(currentQuote.quote);
   }
 };
 
