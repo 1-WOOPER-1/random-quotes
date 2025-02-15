@@ -1,29 +1,26 @@
 import { currentQuote } from "../../index.js";
 
 const favouritesContainer = document.getElementById("favourites-container");
-const toggleBtn = document.getElementById("favourite-btn");
+const favouriteBtn = document.getElementById("favourite-btn");
 
-const toggleFavourite = (quotes) => {
-  currentQuote.isFavourite = !currentQuote.isFavourite;
-  toggleFavouriteIcon(currentQuote.isFavourite, toggleBtn);
+const toggleFavourite = (quote) => {
+  quote.isFavourite = !quote.isFavourite;
+  const { text, author, isFavourite } = quote;
+  toggleFavouriteBtnIcon(isFavourite, favouriteBtn);
 
-  if (currentQuote.isFavourite) {
-    showFavoutiteCard(
-      currentQuote.text,
-      currentQuote.author,
-      favouritesContainer
-    );
+  if (isFavourite) {
+    showFavoutiteCard(text, author, favouritesContainer);
   } else {
-    hideFavoutireCard(currentQuote.text);
+    hideFavoutireCard(quote.text);
   }
 };
 
 const handleFavourite = (isFavourite) => {
-  showBtn(toggleBtn);
-  toggleFavouriteIcon(isFavourite, toggleBtn);
+  showBtn(favouriteBtn);
+  toggleFavouriteBtnIcon(isFavourite, favouriteBtn);
 };
 
-const toggleFavouriteIcon = (isFavourite, el) => {
+const toggleFavouriteBtnIcon = (isFavourite, el) => {
   el.classList.toggle("fa-solid", isFavourite);
   el.classList.toggle("fa-regular", !isFavourite);
 };
@@ -56,7 +53,7 @@ const hideFavoutireCard = (text) => {
   });
 };
 
-toggleBtn.addEventListener("click", toggleFavourite);
-hideBtn(toggleBtn);
+favouriteBtn.addEventListener("click", () => toggleFavourite(currentQuote));
+hideBtn(favouriteBtn);
 
 export { handleFavourite };
