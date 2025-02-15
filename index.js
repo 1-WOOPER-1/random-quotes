@@ -1,4 +1,5 @@
 import quotes from "./src/quotes.js";
+import { generateRandomInt } from "./src/utils.js";
 import {
   hideFavoutireCard,
   showFavoutiteCard,
@@ -15,8 +16,9 @@ let currentQuoteIndex;
 let favouriteQuoteFlag = false;
 
 const generateRandomQuote = () => {
-  currentQuoteIndex = Math.floor(Math.random() * quotes.length);
-  const { quote, author, isFavourite } = quotes[currentQuoteIndex];
+  const randomIndex = generateRandomInt(quote.length);
+  const { quote, author, isFavourite } = quotes[randomIndex];
+  currentQuoteIndex = randomIndex;
   quoteParagraph.innerHTML = quote;
   quoteAuthorParagraph.innerHTML = author;
   toggleFavouriteIcon(isFavourite, toggleFavouriteBtn);
