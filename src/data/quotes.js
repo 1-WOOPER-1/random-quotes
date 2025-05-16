@@ -1,4 +1,4 @@
-import { generateRandomInt } from "../utils";
+// import { generateRandomInt } from "../utils";
 
 const quotes =
   [
