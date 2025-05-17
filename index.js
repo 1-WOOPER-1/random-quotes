@@ -9,10 +9,10 @@ const setCurrentQuote = (quote) => {
 };
 
 const favouritesContainer = document.getElementById("favourites-container");
-const favouriteBtn = document.getElementById("favourite-btn");
-hideFavouriteBtn(favouriteBtn);
-favouriteBtn.addEventListener("click", () =>
-  toggleFavourite(currentQuote, favouriteBtn, favouritesContainer)
+const quoteFavouriteBtn = document.getElementById("quote-favourite-btn");
+hideFavouriteBtn();
+quoteFavouriteBtn.addEventListener("click", () =>
+  toggleFavourite(currentQuote, quoteFavouriteBtn, favouritesContainer)
 );
 
 const generateBtn = document.getElementById("generate-btn");
@@ -20,4 +20,4 @@ generateBtn.addEventListener("click", () =>
   handleQuote(quotes, setCurrentQuote)
 );
 
-export { favouriteBtn };
+export { quoteFavouriteBtn };

@@ -8,11 +8,13 @@ const handleQuote = (quotes, setCurrentQuote) => {
 };
 
 const displayQuote = (quote) => {
-  const { text, author, isFavourite } = quote;
-  const quoteParagraph = document.getElementById("quote");
-  const quoteAuthorParagraph = document.getElementById("quote-author");
-  quoteParagraph.innerHTML = text;
-  quoteAuthorParagraph.innerHTML = author;
+  const { id, text, author, isFavourite } = quote;
+  const quoteElement = document.getElementById("quote");
+  const quoteTextElement = document.getElementById("quote-text");
+  const quoteAuthorElement = document.getElementById("quote-author");
+  quoteElement.dataset.currentQuoteId = id;
+  quoteTextElement.textContent = text;
+  quoteAuthorElement.textContent = author;
   handleFavourite(isFavourite);
 };
 

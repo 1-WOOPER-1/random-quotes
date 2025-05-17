@@ -15,16 +15,19 @@
   <body>
     <div class="container p-5 text-center">
       <h1>Generate random quote</h1>
-      <p id="quote" class="m-4 fs-3">New quote will be here</p>
-      <p id="quote-author" class="m-4 fs-5"></p>
-      <i id="favourite-btn" class="fa-regular fa-star fa-2xl"></i>
-      <button id="generate-btn">Generate quote</button>
-      <div id="favourites-container" class="container p-5"></div>
-      <script src="index.js" type="module"></script>
-      <script
-        src="https://kit.fontawesome.com/ce92fb6fc5.js"
-        crossorigin="anonymous"
-      ></script>
+      <div id="quote">
+        <p id="quote-text" class="m-4 fs-3">New quote will be here</p>
+        <p id="quote-author" class="m-4 fs-5"></p>
+        <i id="quote-favourite-btn" class="fa-regular fa-star fa-2xl"></i>
+        <button id="generate-btn">Generate quote</button>
+      </div>
     </div>
+
+    <div id="favourites-container" class="container p-5"></div>
+    <script src="index.js" type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/ce92fb6fc5.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

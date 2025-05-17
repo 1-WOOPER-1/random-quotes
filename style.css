@@ -1,11 +1,17 @@
 #quote {
   font-style: italic;
+  font-size: 1.5rem;
 }
 
-#quote::before {
+#quote-text {
+  min-height: 5rem;
+  margin-bottom: 0.7rem;
+}
+
+#quote-text::before {
   content: '"';
 }
-#quote::after {
+#quote-text::after {
   content: '"';
 }
 
@@ -13,11 +19,17 @@
   margin: 1rem;
   background-color: #0b5ed7;
   color: white;
-  border-color: #0a58ca;
+  border-color: #0b5ed7;
   border-radius: 0.5rem;
   border-style: solid;
-  border-width: 0;
+  border-width: 1;
   padding: 0.6rem;
+  transition: 0.2s ease-in-out;
+}
+#generate-btn:hover {
+  color: #0b5ed7;
+  background-color: white;
+  border-color: #0b5ed7;
 }
 
 #favourites-container {
@@ -27,16 +39,39 @@
 }
 
 .favourite-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 20rem;
   margin: 1rem;
   padding: 1.1rem;
   text-align: left;
 }
 
-#favourite-btn {
+#quote-favourite-btn {
   cursor: pointer;
   color: #ffd43b;
+  transition: 0.3s ease-in-out;
+}
+#quote-favourite-btn:hover {
+  transform: scale(1.15);
+}
+
+.remove-favourite-btn {
+  color: white;
+  background-color: red;
+  border-color: red;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-width: 1;
+  padding: 0.6rem;
+  margin-top: auto;
+  transition: 0.2s ease-in-out;
+}
+
+.remove-favourite-btn:hover {
+  color: red;
+  background-color: white;
+  border-color: red;
 }
 
 .author-text {
