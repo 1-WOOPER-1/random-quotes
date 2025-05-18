@@ -8,13 +8,6 @@
   margin-bottom: 0.7rem;
 }
 
-#quote-text::before {
-  content: '"';
-}
-#quote-text::after {
-  content: '"';
-}
-
 #generate-btn {
   margin: 1rem;
   background-color: #0b5ed7;
