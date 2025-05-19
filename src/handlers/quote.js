@@ -1,4 +1,4 @@
-import { generateRandomInt } from "../utils.js";
+import { generateRandomInt } from "../utils/math.js";
 import { handleFavourite } from "./favorites.js";
 
 const handleQuote = (quotes, setCurrentQuote) => {
