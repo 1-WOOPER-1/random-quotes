@@ -1,11 +1,12 @@
 import { quoteFavouriteBtn } from "../../index.js";
 
-const toggleFavourite = (quote, btn, container) => {
-  quote.isFavourite = !quote.isFavourite;
+const toggleFavourite = (quote, setCurrentQuote, btn, container) => {
+  const shouldToggleIsFavourite = true;
+  setCurrentQuote(quote, shouldToggleIsFavourite);
   toggleFavouriteBtnIcon(quote.isFavourite, btn);
 
   if (quote.isFavourite) {
-    showFavoutiteCard(quote, container);
+    showFavoutiteCard(quote, setCurrentQuote, container);
   } else {
     removeFavouriteCard(quote.id);
   }
@@ -29,8 +30,9 @@ const hideFavouriteBtn = () => {
   quoteFavouriteBtn.style.display = "none";
 };
 
-const removeFavouriteQuote = (quote) => {
-  quote.isFavourite = false;
+const removeFavouriteQuote = (quote, setCurrentQuote) => {
+  const shouldToggleIsFavourite = true;
+  setCurrentQuote(quote, shouldToggleIsFavourite);
   removeFavouriteCard(quote.id);
   const currentQuote = document.querySelector("[data-current-quote-id]");
   const currentQuoteId = currentQuote.dataset.currentQuoteId;
@@ -39,7 +41,7 @@ const removeFavouriteQuote = (quote) => {
   }
 };
 
-const showFavoutiteCard = (quote, container) => {
+const showFavoutiteCard = (quote, setCurrentQuote, container) => {
   const { id, text, author } = quote;
   const favouriteCard = document.createElement("div");
   favouriteCard.classList.add("favourite-card");
@@ -52,7 +54,9 @@ const showFavoutiteCard = (quote, container) => {
       `;
   container.appendChild(favouriteCard);
   const removeBtn = favouriteCard.querySelector(".remove-favourite-btn");
-  removeBtn.addEventListener("click", () => removeFavouriteQuote(quote));
+  removeBtn.addEventListener("click", () =>
+    removeFavouriteQuote(quote, setCurrentQuote)
+  );
 };
 
 const removeFavouriteCard = (id) => {
@@ -62,4 +66,9 @@ const removeFavouriteCard = (id) => {
   }
 };
 
-export { handleFavourite, toggleFavourite, hideFavouriteBtn };
+export {
+  handleFavourite,
+  toggleFavourite,
+  hideFavouriteBtn,
+  showFavoutiteCard,
+};
