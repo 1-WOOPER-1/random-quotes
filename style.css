@@ -8,7 +8,7 @@
   margin-bottom: 0.7rem;
 }
 
-#generate-btn {
+#random-quote-btn {
   margin: 1rem;
   background-color: #0b5ed7;
   color: white;
@@ -19,7 +19,7 @@
   padding: 0.6rem;
   transition: 0.2s ease-in-out;
 }
-#generate-btn:hover {
+#random-quote-btn:hover {
   color: #0b5ed7;
   background-color: white;
   border-color: #0b5ed7;
